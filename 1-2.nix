@@ -1,7 +1,7 @@
 let
   lib = import <nixpkgs/lib>;
 
-  puzzle_input = lib.readFile ./1.txt;
+  puzzle_input = lib.readFile ./input/1.txt;
 
   rotations = lib.filter (x: x != "") (lib.splitString "\n" puzzle_input);
 

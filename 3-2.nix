@@ -1,7 +1,7 @@
 let
   lib = import <nixpkgs/lib>;
 
-  lines = lib.filter (x: x != "") (lib.splitString "\n" (builtins.readFile ./3.txt));
+  lines = lib.filter (x: x != "") (lib.splitString "\n" (builtins.readFile ./input/3.txt));
 
   banks = map (bank: map lib.toInt bank) (map lib.stringToCharacters lines);
 

@@ -1,7 +1,7 @@
 let
   lib = import <nixpkgs/lib>;
 
-  puzzle_input = lib.replaceStrings ["\n"] [""] (builtins.readFile ./2.txt);
+  puzzle_input = lib.replaceStrings ["\n"] [""] (builtins.readFile ./input/2.txt);
   ranges =
     lib.map
     (pair: lib.splitString "-" pair)
