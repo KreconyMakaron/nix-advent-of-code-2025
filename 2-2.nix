@@ -7,12 +7,10 @@ let
     (pair: lib.splitString "-" pair)
     (lib.splitString "," puzzle_input);
 
-  mod = a: b: a - (b * (a / b));
-
   isValidForPrefix = x: pref: let
     len = lib.stringLength x;
   in
-    if (mod len pref) == 0
+    if (lib.mod len pref) == 0
     then (lib.strings.replicate (len / pref) (lib.substring 0 pref x)) == x
     else false;
 

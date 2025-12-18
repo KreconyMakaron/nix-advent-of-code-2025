@@ -14,10 +14,8 @@ let
     * (lib.toInt (lib.substring 1 (-1) x)))
   rotations;
 
-  mod = a: b: a - (b * (a / b));
-
   step = state: rotation: rec {
-    pos = mod (state.pos + rotation) 100;
+    pos = lib.mod (state.pos + rotation) 100;
     count =
       state.count
       + (

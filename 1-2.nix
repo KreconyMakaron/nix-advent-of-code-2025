@@ -14,16 +14,6 @@ let
     * (lib.toInt (lib.substring 1 (-1) x)))
   rotations;
 
-  mod = a: b: a - (b * (a / b));
-  min = x: y:
-    if x < y
-    then x
-    else y;
-  max = x: y:
-    if x > y
-    then x
-    else y;
-
   step = state: rotation: let
     new = state.pos + rotation;
 
@@ -35,10 +25,10 @@ let
     ceilDiv = x: y:
       - (floorDiv (-x) y);
 
-    sml = min state.pos new;
-    big = max state.pos new;
+    sml = lib.min state.pos new;
+    big = lib.max state.pos new;
   in rec {
-    pos = mod new 100;
+    pos = lib.mod new 100;
     count =
       state.count
       + (floorDiv (big - 1) 100)

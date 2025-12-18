@@ -7,9 +7,7 @@ let
     (pair: lib.splitString "-" pair)
     (lib.splitString "," puzzle_input);
 
-  mod = a: b: a - (b * (a / b));
-
-  evenDigits = s: mod (lib.stringLength s) 2 == 0;
+  evenDigits = s: lib.mod (lib.stringLength s) 2 == 0;
   splitInHalf = s: [
     (lib.substring 0 ((lib.stringLength s) / 2) s)
     (lib.substring ((lib.stringLength s) / 2) (-1) s)
